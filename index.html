@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pooja Sri S – Portfolio</title>
+
+    <style>
+        /* ---------------- ROOT THEME ---------------- */
+        :root {
+            --blue: #8EC5FC;
+            --blue2: #6ba8ff;
+            --pink: #fbc2eb;
+            --white: #ffffff;
+            --dark: #111;
+            --glass-bg: rgba(255, 255, 255, 0.25);
+            --max-width: 1100px;
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(120deg, var(--blue), var(--pink));
+            background-attachment: fixed;
+            color: #111;
+        }
+
+        /* Wrapper */
+        .wrap {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ---------------- HEADER ---------------- */
+        header {
+            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.25);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        header .wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        nav a {
+            margin-left: 18px;
+            text-decoration: none;
+            font-size: 15px;
+            color: #000;
+        }
+
+        /* ---------------- HERO ---------------- */
+        .hero {
+            padding: 80px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .hero-text {
+            width: 55%;
+        }
+
+        .hero h2 {
+            font-size: 45px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 18px;
+            width: 100%;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            background: #6ba8ff;
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #4d8be0;
+        }
+
+        /* Girl Image */
+        .hero-img {
+            width: 40%;
+            padding: 20px;
+            border-radius: 20px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .hero-img img {
+            width: 100%;
+            border-radius: 20px;
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* ---------------- SKILLS ---------------- */
+        .skills {
+            padding: 40px 0;
+        }
+
+        .skills h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .skill-item {
+            font-size: 17px;
+            margin-bottom: 10px;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+        /* ---------------- PROJECTS ---------------- */
+        .projects {
+            padding: 50px 0;
+        }
+
+        .projects h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(15px);
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+            transition: 0.4s;
+            animation: fadeUp 1s ease forwards;
+            opacity: 0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card a {
+            text-decoration: none;
+            color: #0055cc;
+            font-weight: 600;
+        }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ---------------- RESUME POPUP ---------------- */
+        #resumePopup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .resume-box {
+            width: 70%;
+            height: 80%;
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .resume-box iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        /* ---------------- FOOTER ---------------- */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.4);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <div class="wrap">
+            <h1>Pooja Sri S</h1>
+            <nav>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#resume">Resume</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ---------------- HERO ---------------- -->
+    <section class="hero wrap">
+        <div class="hero-text">
+            <h2>Hi, I'm Pooja Sri</h2>
+
+            <p>
+                I am a developer who blends technical expertise with real industry understanding to create impactful
+                digital solutions.
+                I love building clean, responsive, and user-friendly interfaces using modern web technologies.
+                <br><br>
+                Developers use software development languages and tools to write, edit, maintain, and test software.
+                Following the Software Development Life Cycle (SDLC), I plan, design, develop, deploy, and manage
+                applications in a structured and efficient way.
+                <br><br>
+                I’m constantly learning, improving, and exploring new ways to deliver effective results through both
+                creativity and technical skill.
+            </p>
+
+            <a class="btn" onclick="openResume()">View Resume</a>
+            <a class="btn" href="https://ibb.co/6RMfSPYv" download style="margin-left:10px;">Download Resume</a>
+        </div>
+
+        <div class="hero-img">
+            <img src="https://th.bing.com/th/id/OIP.7X6ig6-9GIvDz5Malq1GKwHaHa?w=187&h=187&c=7&r=0&o=7&pid=1.7"
+                alt="Girl with laptop">
+        </div>
+    </section>
+
+    <!-- ---------------- SKILLS ---------------- -->
+    <section id="skills" class="skills wrap">
+        <h2>My Skills</h2>
+        <div class="skill-item">HTML</div>
+        <div class="skill-item">CSS</div>
+        <div class="skill-item">JavaScript</div>
+        <div class="skill-item">Java</div>
+        <div class="skill-item">Python</div>
+    </section>
+
+    <!-- ---------------- PROJECTS ---------------- -->
+    <section id="projects" class="projects wrap">
+        <h2>Projects</h2>
+
+        <div class="project-card">
+            <h3>Poojasri – Graphic Design Portfolio</h3>
+            <p>A creative graphic design portfolio showcasing posters, layouts & UI works.</p>
+            <a href="https://github.com/pooja081810-oss/Poojasri" target="_blank">View on GitHub →</a>
+        </div>
+
+    </section>
+
+    <!-- ---------------- RESUME POPUP ---------------- -->
+    <div id="resumePopup">
+        <div class="resume-box">
+            <span class="close-btn" onclick="closeResume()">✖</span>
+            <iframe src="https://ibb.co/6RMfSPYv"></iframe>
+        </div>
+    </div>
+
+    <script>
+        function openResume() {
+            document.getElementById("resumePopup").style.display = "flex";
+        }
+        function closeResume() {
+            document.getElementById("resumePopup").style.display = "none";
+        }
+    </script>
+
+    <!-- ---------------- FOOTER ---------------- -->
+    <footer id="contact">
+        <p>Contact: pooja@example.com | +91 98765 43210</p>
+        <p>© 2025 Pooja Sri | All Rights Reserved</p>
+    </footer>
+
+</body>
+
+</html>
