@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduLearn</title>
+    <style>
+        /* BASE SETTINGS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #fff;
+            color: #333;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            z-index: 100;
+        }
+
+        .navbar h2 {
+            color: #007bff;
+            font-size: 28px;
+        }
+
+        .navbar ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .navbar ul li a {
+            color: #333;
+            font-size: 17px;
+        }
+
+        .navbar ul li a:hover {
+            color: #007bff;
+        }
+
+        /* HERO */
+        .hero {
+            margin-top: 120px;
+            padding: 100px 8%;
+            text-align: center;
+            border-radius: 25px;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+                url("https://images.pexels.com/photos/4145196/pexels-photo-4145196.jpeg?auto=compress&cs=tinysrgb&w=1600");
+            /* HD education‑themed background */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation: floatMap 8s ease-in-out infinite;
+        }
+
+        @keyframes floatMap {
+
+            0%,
+            100% {
+                background-position: center top;
+            }
+
+            50% {
+                background-position: center bottom;
+            }
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* SEARCH BAR */
+        .search-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .search-box input {
+            width: 100%;
+            max-width: 300px;
+            padding: 12px 20px;
+            border-radius: 50px;
+            border: 2px solid #007bff;
+            outline: none;
+            font-size: 16px;
+        }
+
+        .search-box button {
+            padding: 12px 25px;
+            border: none;
+            background: #007bff;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .search-box button:hover {
+            background: #0056b3;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            background: #007bff;
+            color: #fff;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        /* COURSES SECTION */
+        #courses {
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        #courses h2 {
+            font-size: 36px;
+            margin-bottom: 50px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 25px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.05);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        /* FOOTER */
+        .footer {
+            margin-top: 50px;
+            background: #f1f1f1;
+            padding: 30px 8%;
+            text-align: center;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .footer p {
+            color: #666;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <h2>EduLearn</h2>
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#footer">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <h1>Learn, Grow, Succeed 📚</h1>
+        <p>Explore a curated selection of top-tier courses aligned with industry needs. Gain in-demand skills, enhance your
+        expertise, and open the door to powerful career opportunities.</p>
+        <div class="search-box">
+            <input type="text" placeholder="Search courses...">
+            <button>Search</button>
+        </div>
+        <a href="#courses" class="btn">View Courses</a>
+    </section>
+
+    <!-- COURSES -->
+    <section id="courses">
+        <h2>Popular Courses</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800"
+                    alt="Web Development">
+                <h3>Web Development</h3>
+                <p>HTML, CSS, JavaScript • 8 Weeks • Certificate</p>
+                <a class="btn">Enroll Now</a>
+            </div>
+            <div class="card">
+                <img src="https://images.pexels.com/photos/4145199/pexels-photo-4145199.jpeg?auto=compress&cs=tinysrgb&w=800"
+                    alt="Data Science">
+                <h3>Data Science</h3>
+                <p>Python, SQL, Machine Learning • 10 Weeks • Certificate</p>
+                <a class="btn">Enroll Now</a>
+            </div>
+            <div class="card">
+                <img src="https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=800"
+                    alt="Digital Marketing">
+                <h3>Digital Marketing</h3>
+                <p>SEO, Social Media, Ads • 6 Weeks • Certificate</p>
+                <a class="btn">Enroll Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="footer">
+        <p>© 2025 EduLearn • Learn. Grow. Achieve.</p>
+    </footer>
+
+    <!-- SCROLL ANIMATION SCRIPT -->
+    <script>
+        const cards = document.querySelectorAll('.card');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        cards.forEach(card => observer.observe(card));
+    </script>
+
+</body>
+
+</html>
